@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "buzz-buzzers": "git+ssh://git@github.com:nmcclay/buzz-buzzers.git",
+    "express": "^4.17.2",
     "usb-detection": "^4.13.0"
   },
   "devDependencies": {},

@@ -1,0 +1,35 @@
+{
+  "title": "Thomas & Friends",
+  "questions": [
+    {
+      "question": "What color is Thomas?",
+      "answers": [
+        "Red",
+        "Blue|*",
+        "Green",
+        "White"
+      ],
+      "factoid": "Thomas is a small tank engine who is often seen with his two coaches, Annie and Clarabel."
+    },
+    {
+      "question": "Which engine is number one?",
+      "answers": [
+        "James",
+        "Henry",
+        "Thomas|*",
+        "Edward"
+      ],
+      "factoid": "Thomas doesn't have a tender, instead he has a bunker."
+    },
+    {
+      "question": "What does Gordon pull?",
+      "answers": [
+        "Trucks",
+        "Coaches",
+        "Tankers",
+        "The Express|*"
+      ],
+      "factoid": "Gordon is the fastest and most powerful of The Fat Controller's team – and he knows it."
+    }
+  ]
+}

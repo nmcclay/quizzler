@@ -1,0 +1,25 @@
+{
+  "title": "Test",
+  "questions": [
+    {
+      "question": "Foo?",
+      "answers": [
+        "F",
+        "O",
+        "0|",
+        "?"
+      ],
+      "factoid": "Foo!"
+    },
+    {
+      "question": "Bar?",
+      "answers": [
+        "B",
+        "A",
+        "R|*",
+        "?"
+      ],
+      "factoid": "Bar!"
+    }
+  ]
+}

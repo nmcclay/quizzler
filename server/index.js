@@ -21,4 +21,3 @@ buzzDetector.on('disconnect', function() {
     buzzer.removeAllListeners();
     delete buzzer;
 })
-
