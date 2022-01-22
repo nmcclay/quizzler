@@ -1,0 +1,16 @@
+{
+  "name": "buzzers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "buzz-buzzers": "git+ssh://git@github.com:nmcclay/buzz-buzzers.git",
+    "usb-detection": "^4.13.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
