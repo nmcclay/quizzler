@@ -29,14 +29,15 @@ const jsonOptions = {
 
 app.use(express.static(rootAssetPath, httpOptions));
 app.get('/api', (req, res) => {
+    res.set('x-timestamp', Date.now());
     res.json({ message: "Foobar!" });
 });
 app.get('/api/quiz', async (req, res) => {
     const files = await fs.promises.readdir(quizAssetPath);
+    res.set('x-timestamp', Date.now());
     res.json(files);
 });
 app.use('/api/quiz/', express.static(quizAssetPath, jsonOptions));
-
 app.listen(3001, () => {
     console.log("Server Started");
 });
