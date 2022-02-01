@@ -6,10 +6,12 @@
   "dependencies": {
     "buzz-buzzers": "git+ssh://git@github.com:nmcclay/buzz-buzzers.git",
     "express": "^4.17.2",
+    "socket.io": "^4.4.1",
     "usb-detection": "^4.13.0"
   },
   "devDependencies": {},
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
