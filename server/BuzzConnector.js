@@ -5,7 +5,7 @@ class BuzzConnector extends EventEmitter {
     constructor() {
         super();
         this.buzzers = this.connect();
-        this.addEventListeners();
+        this.addListeners();
     }
 
     connect() {
@@ -27,7 +27,7 @@ class BuzzConnector extends EventEmitter {
         }
     }
 
-    addEventListeners() {
+    addListeners() {
         // Get notified when a button is pressed
         this.buzzers.onPress((ev) => {
             this.emit('press', ev);
@@ -38,10 +38,11 @@ class BuzzConnector extends EventEmitter {
         //     // console.log('Button ' + ev.button + ' on controller ' + ev.controller + ' released');
         // });
         //
-        // // Get notified when an error happens
-        // this.buzzers.onError((err) => {
-        //     // console.log('Error: ', err);
-        // });
+
+        // Get notified when an error happens
+        this.buzzers.onError((err) => {
+            this.emit('error', err);
+        });
     }
 }
 
