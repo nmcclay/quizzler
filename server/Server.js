@@ -17,16 +17,17 @@ class MyServer {
     }
 
     setupRoutes() {
-        const rootAssetPath = path.resolve(path.join("..", "ui", "build"));
-        const httpOptions = {
-            extensions: ['htm', 'html'],
-            index: 'index.html',
-            maxAge: '1d',
-            redirect: false,
-            setHeaders: function (res, path, stat) {
-                res.set('x-timestamp', Date.now())
-            }
-        }
+        // const rootAssetPath = path.resolve(path.join("..", "react", "build"));
+        // const httpOptions = {
+        //     extensions: ['htm', 'html'],
+        //     index: 'index.html',
+        //     maxAge: '1d',
+        //     redirect: false,
+        //     setHeaders: function (res, path, stat) {
+        //         res.set('x-timestamp', Date.now())
+        //     }
+        // }
+        // this.app.use(express.static(rootAssetPath, httpOptions));
 
         const quizAssetPath = path.resolve(path.join("..", "data", "quiz"));
         const jsonOptions = {
@@ -41,7 +42,6 @@ class MyServer {
             }
         }
 
-        this.app.use(express.static(rootAssetPath, httpOptions));
         this.app.get('/api', (req, res) => {
             res.set('x-timestamp', Date.now());
             res.json({ message: "Foobar!" });
