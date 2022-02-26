@@ -1,18 +1,42 @@
 <script>
     import { onMount } from 'svelte';
     export let id;
+    export let quiz;
 
     let title;
     let question;
+    let questionCount;
     let answers = [];
+    let correctAnswer;
 
     onMount(async () => {
         const res = await fetch(`/api/quiz/${id}`);
-        const quiz = await res.json();
+        quiz = await res.json();
         title = quiz.title;
-        question = quiz.questions[0].question;
-        answers = quiz.questions[0].answers;
+        setQuestion(0);
     });
+
+    function setQuestion(num) {
+        questionCount = num;
+        question = quiz.questions[num].question;
+        answers = quiz.questions[num].answers;
+        correctAnswer = answers.findIndex(answer => answer.includes('|*'));
+        if (correctAnswer < 0) throw new Error("Oops! This quiz has no right answer!");
+        answers[correctAnswer] = answers[correctAnswer].replace("|*","");
+    }
+
+    function checkAnswer(i) {
+        const isCorrect = i == correctAnswer;
+        if (isCorrect) getNextQuestion();
+    }
+
+    function getNextQuestion() {
+        const nextQuestionCount = questionCount + 1;
+        if (nextQuestionCount >= quiz.questions.length) {
+            throw new Error("ALL DONE!");
+        }
+        setQuestion(nextQuestionCount);
+    }
 </script>
 
 <style>
@@ -42,6 +66,7 @@
         padding: 10px;
         margin: 10px 0;
         border-radius: 5px;
+        cursor: pointer;
     }
 
     .answers li:first-child {
@@ -70,8 +95,8 @@
     <div class="card">
         <p class="question">{question}</p>
         <ul class="answers">
-            {#each answers as answer}
-                <li>{answer}</li>
+            {#each answers as answer, i}
+                <li on:click={() => checkAnswer(i)}>{answer}</li>
             {/each}
         </ul>
     </div>
